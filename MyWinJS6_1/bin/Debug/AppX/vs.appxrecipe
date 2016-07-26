@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>MASTER32</Machine>
+    <WindowsUser>kurachyan</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>fe99f7ee-b248-496f-a9ad-a8c26c7d92c0</PackageIdentityName>
+    <PackageIdentityPublisher>CN=kurachyan</PackageIdentityPublisher>
+    <IntermediateOutputPath>D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\bld\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <RegisteredManifestChecksum>24778C6BA482CF87553DA54B8F3CA82AA59AF643C47852A8096863F5435E7F8B</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>fe99f7ee-b248-496f-a9ad-a8c26c7d92c0_1.0.0.0_neutral__yg9c5bhr3ra1r</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>fe99f7ee-b248-496f-a9ad-a8c26c7d92c0_yg9c5bhr3ra1r!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>fe99f7ee-b248-496f-a9ad-a8c26c7d92c0</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=kurachyan</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-07-26T04:19:38.991</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\default.html">
+      <PackagePath>default.html</PackagePath>
+      <Modified>2016-07-26T04:18:22.181</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\images\logo.scale-100.png">
+      <PackagePath>images\logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-05-29T07:30:06.037</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\images\smalllogo.scale-100.png">
+      <PackagePath>images\smalllogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-05-29T07:24:00.175</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\images\splashscreen.scale-100.png">
+      <PackagePath>images\splashscreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-05-29T07:33:48.188</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\images\storelogo.scale-100.png">
+      <PackagePath>images\storelogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-05-29T07:38:09.501</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\default.js">
+      <PackagePath>js\default.js</PackagePath>
+      <Modified>2016-06-20T05:49:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\localscript.js">
+      <PackagePath>js\localscript.js</PackagePath>
+      <Modified>2016-07-26T04:11:57.770</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2015-10-10T13:04:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\bin\Debug\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2016-07-26T04:19:35.972</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.WinJS.2.0\1.0\">
+      <Name>Microsoft.WinJS.2.0</Name>
+      <Version>1.0.9600.17018</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.WinJS.2.0, MinVersion=1.0.9600.17018</FrameworkIdentity>
+      <AppxLocation>C:\Program Files\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.WinJS.2.0\1.0\Microsoft.WinJS.2.0.appx</AppxLocation>
+      <MoreInfo>http://go.microsoft.com/fwlink/%3fLinkId=260891</MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
