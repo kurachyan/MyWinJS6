@@ -15,7 +15,15 @@
     <script src="/js/default.js"></script>
 
     <script src="/js/localscript.js"></script>
+    <script src="/js/Dictionary.js"></script>
+
     <!-- Script （前処理）-->
+    <script>
+        // Dummy Module
+        function LocalTest() {
+            var a = 0;
+        }
+    </script>
 </head>
 <body>
 <!---
@@ -45,11 +53,18 @@
                onclick="ExitJob()">
         <input type="button" name="Exchange" value="時間延長"
                onclick="ExchangeJob()">
+        <br>
+        <input type="button" name="Encode" value="エンコード"
+               onclick="EncJob()">
+        <input type="button" name="Decode" value="デコード"
+               onclick="DecJob()">
     </form>
 
     <!-- Script -->
     <script>
         let local = new LocalTimerScript();
+        let dic = new LocalDictionaryScript();
+        let Count = 0;
 
         function BootJob() {
             // 処理開始
@@ -72,6 +87,21 @@
             // 周期時間延長　：　１秒－＞２秒
             local.ChangeTimer(2000);
             document.getElementById("footinfo").innerHTML = "１秒から２秒に変更しました。";
+        }
+        function EncJob() {
+            // Object Test
+            dic.Start();
+
+            Count = dic.Add("LocalTest", LocalTest);
+            Count = dic.Dup();
+/*          [Del]
+            let O3 = dic.Del();
+            document.getElementById("result").innerHTML = "Del[" + O3.Name + "]";
+*/
+        }
+        function DecJob() {
+            // View Count
+            document.getElementById("result").innerHTML = "Count = "+Count;
         }
     </script>
 </body>
