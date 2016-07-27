@@ -23,6 +23,10 @@
         function LocalTest() {
             var a = 0;
         }
+        function LocalTest2() {
+            let a = 1, b = 2;
+            return(a + b);
+        }
     </script>
 </head>
 <body>
@@ -91,9 +95,13 @@
         function EncJob() {
             // Object Test
             dic.Start();
+            Count = dic.Add("LocalTest2", LocalTest2);
+            dic.Eval(1);
 
+/*          [Add][Dup]
             Count = dic.Add("LocalTest", LocalTest);
             Count = dic.Dup();
+*/
 /*          [Del]
             let O3 = dic.Del();
             document.getElementById("result").innerHTML = "Del[" + O3.Name + "]";

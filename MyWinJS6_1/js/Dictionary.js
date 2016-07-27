@@ -45,6 +45,10 @@
 
     function LocalDictionaryScript() {
         // Local Script Module
+        // モジュール名：Init
+        // 　　　　入力：なし
+        //　　 　　出力：o3　・・・　新しい初期領域
+        // 　　処理内容：資源テーブル情報を作成する
         this.Init = function () {
             // 初期領域作成
             let o3 = Object.create(dfO2);     // テンプレートを取り出し
@@ -56,6 +60,11 @@
 
             return o3;						// 新しい初期領域を返す。
         };
+        // モジュール名：Start
+        // 　　　　入力：なし
+        // 　　　　出力：なし
+        // 　　処理内容：資源テーブル情報を初期設定する
+        //       その他：先頭ファンクション名強制設定 2016.05.29
         this.Start = function () {
             // 資源テーブル初期設定
             Table.push(this.Init());
@@ -63,6 +72,11 @@
             Table[0].Name = "NaN";           // [0]:"NaN"
             pos = 1;
         };
+        // モジュール名：Add
+        // 　　　　入力：fname　・・・　登録名
+        // 　　　　　　：logic　・・・　登録ファンクション
+        // 　　　　出力：w1　・・・　資源テーブルの管理番号
+        // 　　処理内容：資源テーブル情報に追加する
         this.Add = function (fname, logic) {
             // シーケンス情報追加
             Table.push(this.Init());				// 最後尾に領域作成
@@ -76,6 +90,10 @@
             pos++;
             return w1;						// 管理番号を返す
         }
+        // モジュール名：Del
+        // 　　　　入力：なし
+        // 　　　　出力：o3　・・・　抜き取り情報
+        // 　　処理内容：資源テーブル情報の最後尾を削除する
         this.Del = function () {
             // シーケンス情報抜き取り（削除）
             let w1 = Table.length - 1;
@@ -94,6 +112,10 @@
             }
             return o3;
         }
+        // モジュール名：Dup
+        // 　　　　入力：なし
+        // 　　　　出力：(w1)　・・・　資源テーブルの管理番号
+        // 　　処理内容：資源テーブル情報の最後尾を複写する
         this.Dup = function () {
             // シーケンス情報重複
             let w1 = Table.length - 1;
@@ -101,6 +123,17 @@
             let fname = Table[w1].Name;
 
             return this.Add(fname, logic);	    // 重複情報を登録し、管理番号を返す
+        }
+        // モジュール名：Eval
+        // 　　　　入力：eno　・・・　実行する番号
+        // 　　　　出力：table[eno].Result　・・・　実行結果
+        // 　　処理内容：資源テーブル情報を実行する
+        this.Eval = function (eno) {
+            // 定義された処理を実行
+            if (eno > 0 && eno < Table.length) {   // 実行対象の要素が有るか？
+                let fname = Table[eno].Name + "();";	// 登録情報を関数名に変換する       
+                Table[eno].Result = eval(fname);	// 関数を呼び出す
+            }
         }
     }
 
