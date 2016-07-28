@@ -15,7 +15,7 @@
     <script src="/js/default.js"></script>
 
     <script src="/js/localscript.js"></script>
-    <script src="/js/Dictionary.js"></script>
+    <script src="/js/Function.js"></script>
 
     <!-- Script （前処理）-->
     <script>
@@ -34,7 +34,7 @@
         <p>コンテンツをここに挿入</p>
 //--->
 
-    <p>ＭｙＷｉｎＪＳ５＿１</p>
+    <p>ＭｙＷｉｎＪＳ６＿１</p>
 
     <!--- Header --->
     <form name="myTime">
@@ -67,7 +67,7 @@
     <!-- Script -->
     <script>
         let local = new LocalTimerScript();
-        let dic = new LocalDictionaryScript();
+        let fnc = new LocalFunctionScript();
         let Count = 0;
 
         function BootJob() {
@@ -94,16 +94,20 @@
         }
         function EncJob() {
             // Object Test
-            dic.Start();
-            Count = dic.Add("LocalTest2", LocalTest2);
-            dic.Eval(1);
-
+            fnc.Start();
+            Count = fnc.Add("LocalTest2", LocalTest2);
+            let i = fnc.Check("LocalTest2");
+            fnc.Eval(i);
+            document.getElementById("result").innerHTML = "LocalTest2.Result = [" + fnc.Getresult(i) + "]";
+/*
+            fnc.Eval(1);
+*/
 /*          [Add][Dup]
-            Count = dic.Add("LocalTest", LocalTest);
-            Count = dic.Dup();
+            Count = fnc.Add("LocalTest", LocalTest);
+            Count = fnc.Dup();
 */
 /*          [Del]
-            let O3 = dic.Del();
+            let O3 = fnc.Del();
             document.getElementById("result").innerHTML = "Del[" + O3.Name + "]";
 */
         }

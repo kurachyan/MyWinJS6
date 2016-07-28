@@ -3,38 +3,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
-    <title>MyWinJS6_1</title>
+    <title>MyWinJS6_2</title>
 
     <!-- WinJS 参照 -->
     <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
     <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
     <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
 
-    <!-- MyWinJS6_1 参照 -->
+    <!-- MyWinJS6_2 参照 -->
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/default.js"></script>
 
     <script src="/js/localscript.js"></script>
-    <script src="/js/Function.js"></script>
-
+    <script src="/js/Variable.js"></script>
     <!-- Script （前処理）-->
     <script>
-        // Dummy Module
-        function LocalTest() {
-            var a = 0;
+/*      [vMap]
+        var data = [-3, -1, -4, 1, 5, 9, 2, 6, 53, 589, 7932];
+        function job(value, index, array) {
+            return Math.abs(value);
         }
-        function LocalTest2() {
-            let a = 1, b = 2;
-            return(a + b);
+*/
+        var data = ["A", "B", "C", "D", "E"];
+        function connection(prev, value, index, array) {
+            return prev + value;
         }
     </script>
 </head>
 <body>
 <!---
-        <p>コンテンツをここに挿入</p>
+            <p>コンテンツをここに挿入</p>
 //--->
 
-    <p>ＭｙＷｉｎＪＳ５＿１</p>
+    <p>ＭｙＷｉｎＪＳ６＿２</p>
 
     <!--- Header --->
     <form name="myTime">
@@ -55,20 +56,15 @@
                onclick="BootJob()">
         <input type="button" name="Exit" value="終了"
                onclick="ExitJob()">
-        <input type="button" name="Exchange" value="時間延長"
-               onclick="ExchangeJob()">
         <br>
-        <input type="button" name="Encode" value="エンコード"
-               onclick="EncJob()">
-        <input type="button" name="Decode" value="デコード"
-               onclick="DecJob()">
+        <input type="button" name="vAdd" value="ADD"
+               onclick="vAddJob()">
     </form>
 
     <!-- Script -->
     <script>
         let local = new LocalTimerScript();
-        let fnc = new LocalFunctionScript();
-        let Count = 0;
+        let lvar = new LocalVariableScript
 
         function BootJob() {
             // 処理開始
@@ -87,33 +83,31 @@
             local.StopTimer();
             document.getElementById("footinfo").innerHTML = "待機中です。";
         }
-        function ExchangeJob() {
-            // 周期時間延長　：　１秒－＞２秒
-            local.ChangeTimer(2000);
-            document.getElementById("footinfo").innerHTML = "１秒から２秒に変更しました。";
-        }
-        function EncJob() {
-            // Object Test
-            fnc.Start();
-            Count = fnc.Add("LocalTest2", LocalTest2);
-            let i = fnc.Check("LocalTest2");
-            fnc.Eval(i);
-            document.getElementById("result").innerHTML = "LocalTest2.Result = [" + fnc.Getresult(i) + "]";
+        function vAddJob() {
+            // 登録処理
+/*          [vRed]
+            let ret = lvar.vAdd("data", data);
+
+            let r = lvar.vRed(0, connection);
+*/
+/*          [vMap]
+            let ret = lvar.vAdd("data", data);
+
+            let d = lvar.vMap(0, job);
+*/
 /*
-            fnc.Eval(1);
+            let ret = lvar.vAdd("list", [0, 1, 2, 3, 4, 5]);
+            ret = lvar.vAdd("list2", 6);
 */
-/*          [Add][Dup]
-            Count = fnc.Add("LocalTest", LocalTest);
-            Count = fnc.Dup();
+/*          [vDel] [vDup]
+            let o5 = lvar.vDel();
+
+            ret = lvar.vDup();
 */
-/*          [Del]
-            let O3 = fnc.Del();
-            document.getElementById("result").innerHTML = "Del[" + O3.Name + "]";
+/*          [Check] [vSet]
+            ret = lvar.Check("list2");
+            ret = lvar.vSet(ret, [7, 8]);
 */
-        }
-        function DecJob() {
-            // View Count
-            document.getElementById("result").innerHTML = "Count = "+Count;
         }
     </script>
 </body>

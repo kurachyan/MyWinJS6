@@ -28,13 +28,13 @@
     <AppXManifest Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-07-27T12:31:59.281</Modified>
+      <Modified>2016-07-28T03:34:29.553</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\default.html">
       <PackagePath>default.html</PackagePath>
-      <Modified>2016-07-27T12:15:28.182</Modified>
+      <Modified>2016-07-28T03:33:41.523</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\images\logo.scale-100.png">
       <PackagePath>images\logo.scale-100.png</PackagePath>
@@ -60,9 +60,9 @@
       <PackagePath>js\default.js</PackagePath>
       <Modified>2016-06-20T05:49:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\Dictionary.js">
-      <PackagePath>js\Dictionary.js</PackagePath>
-      <Modified>2016-07-27T12:29:02.102</Modified>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\Function.js">
+      <PackagePath>js\Function.js</PackagePath>
+      <Modified>2016-07-28T03:31:12.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\localscript.js">
       <PackagePath>js\localscript.js</PackagePath>
@@ -74,7 +74,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\bin\Debug\ReverseMap\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-07-27T12:31:59.007</Modified>
+      <Modified>2016-07-28T03:34:27.309</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

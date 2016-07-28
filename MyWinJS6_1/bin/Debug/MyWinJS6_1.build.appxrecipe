@@ -44,8 +44,8 @@
     <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\default.js">
       <PackagePath>js\default.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\Dictionary.js">
-      <PackagePath>js\Dictionary.js</PackagePath>
+    <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\Function.js">
+      <PackagePath>js\Function.js</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Visual Stdio HTML\MyWinJS6\MyWinJS6_1\js\localscript.js">
       <PackagePath>js\localscript.js</PackagePath>
