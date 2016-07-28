@@ -167,18 +167,17 @@
             return this.vSet(vpos, ans);
         }
 
-// 要）試験
         // モジュール名：vExc
         // 　　　　入力：vpos　・・・　実行する番号
         // 　　　　　　：adr1・adr2　・・・　交換する番号
         // 　　　　出力：vpos　・・・　実行結果
         // 　　処理内容：資源テーブル情報Argvの中身を交換する
         this.vExc = function(vpos, adr1, adr2) {
-            if (vtable[vpos].Argc > 1) {          // 交換情報有り？
-                if ((vtable[vpos].Argc > adr1) && (vtable[vpos].Argc > adr2) && (adr1 != adr2)) {
-                    let w1 = vtable[vpos].Argv[adr1];
-                    vtable[vpos].Argv[adr1] = vtable[vpos].Argv[adr2];
-                    vtable[vpos].Argv[adr2] = w1;
+            if (Table[vpos].Argc > 1) {          // 交換情報有り？
+                if ((Table[vpos].Argc > adr1) && (Table[vpos].Argc > adr2) && (adr1 != adr2)) {
+                    let w1 = Table[vpos].Argv[adr1];
+                    Table[vpos].Argv[adr1] = Table[vpos].Argv[adr2];
+                    Table[vpos].Argv[adr2] = w1;
                 }
 
                 return vpos;						// 管理番号を返す
