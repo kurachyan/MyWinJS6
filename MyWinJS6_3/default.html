@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>MyWinJS6_3</title>
+
+    <!-- WinJS 参照 -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <!-- MyWinJS6_3 参照 -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+
+    <script src="/js/localscript.js"></script>
+    <script src="/js/Dictionary.js"></script>
+    <!-- Script （前処理）-->
+    <script>
+    </script>
+</head>
+<body>
+<!---
+    <p>コンテンツをここに挿入</p>
+//--->
+
+    <p>ＭｙＷｉｎＪＳ６＿３</p>
+
+    <!--- Header --->
+    <form name="myTime">
+        <div id="timeinfo">登録時間を表示します。</div>
+    </form>
+
+    <!--- Body --->
+    <!--- 詳細情報 --->
+    <form name="myForm">
+        <div id="result">詳細情報を表示します。</div>
+    </form>
+
+    <!--- Footer --->
+    <form name="myFooter">
+        <div id="footinfo">待機中です。</div><br>
+
+        <input type="button" name="Boot" value="開始"
+               onclick="BootJob()">
+        <input type="button" name="Exit" value="終了"
+               onclick="ExitJob()">
+        <br>
+        <input type="button" name="Encode" value="生成"
+               onclick="EncJob()">
+        <input type="button" name="Decode" value="復号"
+               onclick="DecJob()">
+    </form>
+
+    <!-- Script -->
+    <script>
+        let local = new LocalTimerScript();
+
+        function BootJob() {
+            // 処理開始
+            if (local.CheckTimer() == false) {      // タイマー未稼働？
+                // タイマー稼働
+                local.BootTimer();
+                document.getElementById("footinfo").innerHTML = "Timer稼働中です。";
+
+            } else {
+                // 稼働済み
+                document.getElementById("footinfo").innerHTML = "二重稼働は出来ません。";
+            }
+        }
+        function ExitJob() {
+            // 処理終了
+            local.StopTimer();
+            document.getElementById("footinfo").innerHTML = "待機中です。";
+        }
+        function EncJob() {
+            // 生成処理
+
+        }
+        function DecJob() {
+            // 復号処理
+        }
+    </script>
+</body>
+</html>

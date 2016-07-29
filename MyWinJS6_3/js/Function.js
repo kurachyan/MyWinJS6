@@ -1,14 +1,10 @@
 ﻿"use strict";
 /*
-	ディクショナリ専用パッケージ
+	情報操作パッケージ
 
 	(内容)
-	ディクショナリで使う要素の管理・操作を行う。
-
-    （注意）
-    ・リソース関連を扱う、WebStorage
-    ・周期起動や並行処理の為の、Worker
-    これら二つは、専用の別ファイルを作成して対応する事。
+	処理で使う要素の管理・操作を行う。　ｏ３で作業領域を確保した後、ｏ３に対して処理を行う。
+	ｏ３を操作するモノは編集後のｏ３を返し、管理情報配列を操作するモノはオフセット番号を返す。
 */
 
 (function (window) {
@@ -43,7 +39,7 @@
     let Table = new Array();
     let pos;
 
-    function LocalDictionaryScript() {
+    function LocalFunctionScript() {
         // Local Script Module
         // モジュール名：Init
         // 　　　　入力：なし
@@ -101,7 +97,7 @@
             let o3 = this.Init();
             if (w1 > 0) {   // 削除対象の要素が有るか？
                 o3.Number = Table[w1].Number;   // シーケンス番号の取り出し
-                o3.Name =Table[w1].Name;		// ファンクション名の取り出し
+                o3.Name = Table[w1].Name;		// ファンクション名の取り出し
                 o3.Logic = Table[w1].Logic;		// ファンクション登録の取り出し
                 o3.Result = Table[w1].Result;	// 結果情報の取り出し
                 o3.Link.Last = Table[w1].Link.Last;
@@ -135,7 +131,45 @@
                 Table[eno].Result = eval(fname);	// 関数を呼び出す
             }
         }
+		//
+		// 追加評価
+        //
+
+        // モジュール名：Check
+        // 　　　　入力：word　・・・　検索する関数名
+        // 　　　　出力：(w1)　・・・　資源テーブルの管理番号
+        // 　　処理内容：関数名の登録位置を検索する
+        this.Check = function (word) {
+            let ret = Number.MIN_VALUE;     // 未検出
+            for (let i = 0; i < pos; i++ ) {    // 登録分繰り返す
+                if (Table[i].Name == word) {
+                    // 検索する関数名
+                    ret = i;
+                    break;
+                }
+            }
+
+            return(ret);
+        }
+        // モジュール名：Getpos
+        // 　　　　入力：なし
+        // 　　　　出力：pos　・・・　資源テーブルの登録数
+        // 　　処理内容：資源テーブルの登録数を取り出す。
+        this.Getpos = function () {
+            return(pos);
+        }
+        // モジュール名：Getresult
+        // 　　　　入力：eno　・・・　取り出す番号
+        // 　　　　出力：table[eno].Result　・・・　実行結果
+        // 　　処理内容：残された実行結果を取り出す。
+        this.Getresult = function (eno) {
+            if (eno > 0 && eno < Table.length) {   // 実行対象の要素が有るか？
+                return (Table[eno].Result);
+            } else {
+                return ("");
+            }
+        }
     }
 
-    window.LocalDictionaryScript = LocalDictionaryScript;
+    window.LocalFunctionScript = LocalFunctionScript;
 }(window));
