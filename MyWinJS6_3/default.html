@@ -16,8 +16,13 @@
 
     <script src="/js/localscript.js"></script>
     <script src="/js/Dictionary.js"></script>
+    <script src="/js/Function.js" async></script>
+    <script src="/js/Variable.js" async></script>
     <!-- Script （前処理）-->
     <script>
+        function test1() {
+            a = 0;
+        }
     </script>
 </head>
 <body>
@@ -76,7 +81,13 @@
         }
         function EncJob() {
             // 生成処理
+            let lfs = new LocalFunctionScript();
+            let lds = new LocalDictionaryScript();
 
+            lfs.Start();        // Function Boot
+            lfs.Add('Test1', test1);
+
+            lds.Start();        // Dictionary Boot
         }
         function DecJob() {
             // 復号処理

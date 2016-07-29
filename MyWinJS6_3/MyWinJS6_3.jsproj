@@ -63,7 +63,9 @@
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
     <Content Include="js\Dictionary.js" />
+    <Content Include="js\Function.js" />
     <Content Include="js\localscript.js" />
+    <Content Include="js\Variable.js" />
     <None Include="MyWinJS6_3_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

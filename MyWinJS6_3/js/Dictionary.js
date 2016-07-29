@@ -88,3 +88,93 @@
 
     window.LocalDictionaryScript = LocalDictionaryScript;
 }(window));
+
+/*
+	ディクショナリ補助パッケージ
+
+	(内容)
+	ディクショナリで使う要素の補助を行う。
+
+    (注意)
+    [Function.js][Variable.js]に用意されているTableの型を使っている。
+    テーブル構成が変わった場合、併せて変更すること。
+*/
+(function (window) {
+    // １）リンク情報
+    const dfO1 = {
+        last: Number.MIN_VALUE,     // 前情報位置
+        next: Number.MAX_VALUE,     // 次情報位置
+
+        set Last(value) { this.last = value; },
+        set Next(value) { this.next = value; },
+        get Last() { return this.last; },
+        get Next() { return this.next; }
+    };
+
+    // ２）管理情報
+    const dfO2 = {
+        number: 0,			        // 管理番号
+        Link: null,			        // リンク情報 （o1：リンク情報 を設定する）
+        name: "",                   // 関数名
+        Logic: function () { },		// ファンクション
+        result: "",                 // 結果情報（テキスト）
+
+        set Number(value) { this.number = value; },
+        set Name(value) { this.name = value; },
+        set Result(value) { this.result = value; },
+        get Number() { return this.number; },
+        get Name() { return this.name; },
+        get Result() { return this.result; }
+    };
+
+    // ３）変数情報
+    const dfO4 = {
+        name: "",                   // 名称
+        argc: 0,                    // 要素数
+        argv: [],                   // 要素リスト
+        result: "",                 // 結果情報（テキスト）
+
+        set Name(value) { this.name = value; },
+        set Argc(value) { this.argc = value; },
+        set Argv(value) { this.argv = value; },
+        set Result(value) { this.result = value; },
+        get Name() { return this.name; },
+        get Argc() { return this.argc; },
+        get Argv() { return this.argv; },
+        get Result() { return this.result; }
+    };
+
+    function SubDictionaryScript() {
+        // Sub Dictionary Script
+        // モジュール名：Init
+        // 　　　　入力：なし
+        //　　 　　出力：o3　・・・　新しい初期領域
+        // 　　処理内容：資源テーブル情報を作成する
+        this.Init = function () {
+            // 初期領域作成
+            let o3 = Object.create(dfO2);     // テンプレートを取り出し
+            o3.Number = 0;                  // 管理番号仮設定
+            o3.Link = Object.create(dfO1);    // リンク情報の登録
+            o3.Name = "";					// ファンクション名のリセット
+            o3.Logic = null;                // ファンクション登録のリセット
+            o3.Result = "";					// 結果情報のリセット
+
+            return o3;						// 新しい初期領域を返す。
+        };
+        // モジュール名：vInit
+        // 　　　　入力：なし
+        //　　 　　出力：なし
+        // 　　処理内容：資源テーブル情報を作成する
+        this.vInit = function () {                   // 初期領域作成
+            let o5 = Object.create(dfO4);     // テンプレートを取り出し
+            o5.Name = "";					// 要素名のリセット
+            o5.Argc = 0;					// 要素数のリセット
+            o5.Argv = null;					// 要素リストのリセット
+            o5.Result = "";					// 結果情報のリセット
+
+            return o5;						// 新しい初期領域を返す。
+        }
+    }
+
+    window.SubDictionaryScript = SubDictionaryScript;
+}(window));
