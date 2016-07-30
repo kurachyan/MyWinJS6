@@ -21,8 +21,9 @@
     <!-- Script （前処理）-->
     <script>
         function test1() {
-            a = 0;
+            let a = 0;
         }
+        var b = [0, 1, 2, 3, 4, 5];
     </script>
 </head>
 <body>
@@ -82,10 +83,13 @@
         function EncJob() {
             // 生成処理
             let lfs = new LocalFunctionScript();
+            let lvs = new LocalVariableScript();
             let lds = new LocalDictionaryScript();
 
             lfs.Start();        // Function Boot
             lfs.Add('Test1', test1);
+
+            lvs.vAdd('b', b);   // Variable Boot
 
             lds.Start();        // Dictionary Boot
         }
