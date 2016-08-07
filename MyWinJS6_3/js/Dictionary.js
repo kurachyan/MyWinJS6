@@ -67,6 +67,7 @@
             Table[w1].kind = "M";               // [w1]:{"M" , [モジュール情報]}
             Table[w1].DLink = module;
 
+            pos++;
             return w1;						// 管理番号を返す
         };
 
@@ -82,8 +83,88 @@
             Table[w1].kind = "V";               // [w1]:{"V" , [資源情報]}
             Table[w1].DLink = variable;
 
+            pos++;
             return w1;						// 管理番号を返す
         };
+
+        // モジュール名：Check
+        // 　　　　入力：ctype ・・・　検索する情報種別［M］又は、［V］
+        // 　　　　　　：word　・・・　検索する変数名
+        // 　　　　出力：(w1)　・・・　資源テーブルの管理番号
+        // 　　処理内容：変数名の登録位置を検索する
+        this.Check = function (ctype, word) {
+            let ret = Number.MIN_VALUE;     // 未検出
+
+            if ((ctype == 'M') || (ctype == 'V')) {
+                for (let i = 0; i < pos; i++) {    // 登録分繰り返す
+                    if (Table[i].kind == ctype) {   // 種別が同じか？
+                        if (ctype == 'M') {     // Function ?
+                            let o3 = Table[i].Link;
+                            if (o3.Name == word) {
+                                // 検索する変数名
+                                ret = i;
+                                break;
+                            }
+                        } else {    // Variable
+                            let o5 = Table[i].Link;
+                            if (o5.Name == word) {
+                                // 検索する変数名
+                                ret = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return (ret);
+        };
+
+        // モジュール名：Getpos
+        // 　　　　入力：なし
+        // 　　　　出力：pos　・・・　資源テーブルの登録数
+        // 　　処理内容：資源テーブルの登録数を取り出す。
+        this.Getpos = function () {
+            return (pos);
+        };
+/*
+        // モジュール名：Getresult
+        // 　　　　入力：eno　・・・　取り出す番号
+        // 　　　　出力：table[eno].Result　・・・　実行結果
+        // 　　処理内容：残された実行結果を取り出す。
+        this.Getresult = function (eno) {
+            if (eno > 0 && eno < Table.length) {   // 実行対象の要素が有るか？
+                return (Table[eno].Result);
+            } else {
+                return ("");
+            }
+        };
+
+        // モジュール名：Get
+        // 　　　　入力：eno　・・・　取り出す番号
+        // 　　　　出力：o5　・・・　抜き取り情報
+        // 　　処理内容：資源テーブル情報を取り出す
+        this.Get = function (eno) {
+            let w1 = Table.length - 1;
+
+            let o5 = this.vInit();               // 格納領域を作成
+            if (eno > -1) {   // 削除対象の要素が有るか？ [Number.MIN_VALUE]->[-1]
+                o5.Name = Table[eno].Name;		// 要素名の取り出し
+
+                if (Array.isArray(Table[eno].Argv)) {		// 登録情報は配列か？
+                    o5.Argc = Table[eno].Argc;
+                    o5.Argv = new Array(Table[eno].Argc);
+                    for (let i = 0; i < Table[eno].Argc; i++) {
+                        o5.Argv[i] = Table[eno].Argv[i];	// 要素を登録する
+                    }
+                } else {                        // 一次変数
+                    o5.Argc = 1;
+                    o5.Argv = Table[eno].Argv;
+                }
+            }
+            return o5;
+        };
+*/
     };
 
     window.LocalDictionaryScript = LocalDictionaryScript;

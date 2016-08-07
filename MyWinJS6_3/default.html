@@ -16,14 +16,30 @@
 
     <script src="/js/localscript.js"></script>
     <script src="/js/Dictionary.js"></script>
-    <script src="/js/Function.js" async></script>
-    <script src="/js/Variable.js" async></script>
+    <script src="/js/Function.js"></script>
+    <script src="/js/Variable.js"></script>
     <!-- Script （前処理）-->
     <script>
         function test1() {
-            let a = 0;
+            let a1 = 0;
         }
-        var b = [0, 1, 2, 3, 4, 5];
+        function test2() {
+            let a2 = 1;
+        }
+        function test3() {
+            let a3 = 2;
+        }
+        function test4() {
+            let a4 = 3;
+        }
+        function test5() {
+            let a5 = 4;
+        }
+        function test6() {
+            let a6 = 5;
+        }
+        var b1 = [0, 1, 2, 3, 4, 5];
+        var b2 = [0, 1, 2, 3, 4];
     </script>
 </head>
 <body>
@@ -63,6 +79,11 @@
     <script>
         let local = new LocalTimerScript();
 
+        let lfs = new LocalFunctionScript();
+        let lvs = new LocalVariableScript();
+        let lds = new LocalDictionaryScript();
+        lds.Start();        // Dictionary Boot
+
         function BootJob() {
             // 処理開始
             if (local.CheckTimer() == false) {      // タイマー未稼働？
@@ -82,19 +103,51 @@
         }
         function EncJob() {
             // 生成処理
-            let lfs = new LocalFunctionScript();
-            let lvs = new LocalVariableScript();
-            let lds = new LocalDictionaryScript();
-
             lfs.Start();        // Function Boot
             lfs.Add('Test1', test1);
+            lfs.Add('Test2', test2);
+            lfs.Add('Test3', test3);
+            lfs.Add('Test4', test4);
+            lfs.Add('Test5', test5);
+            lfs.Add('Test6', test6);
 
-            lvs.vAdd('b', b);   // Variable Boot
+            let lpos = lfs.Check('Test1');
+            let o3 = lfs.Get(lpos);
+            let w1 = lds.dSetMod(o3);   // Store 6 Function
+            lpos = lfs.Check('Test2');
+            o3 = lfs.Get(lpos);
+            w1 = lds.dSetMod(o3);
+            lpos = lfs.Check('Test3');
+            o3 = lfs.Get(lpos);
+            w1 = lds.dSetMod(o3);
+            lpos = lfs.Check('Test4');
+            o3 = lfs.Get(lpos);
+            w1 = lds.dSetMod(o3);
+            lpos = lfs.Check('Test5');
+            o3 = lfs.Get(lpos);
+            w1 = lds.dSetMod(o3);
+            lpos = lfs.Check('Test6');
+            o3 = lfs.Get(lpos);
+            w1 = lds.dSetMod(o3);
 
-            lds.Start();        // Dictionary Boot
+            lvs.vAdd('b1', b1);   // Variable Boot
+            lvs.vAdd('b2', b2);
+            let vpos = lvs.Check('b1');
+            let o5 = lvs.Get(vpos);
+            w1 = lds.dSetVal(o5);       // Store 2 Variable
+            vpos = lvs.Check('b2');
+            o5 = lvs.Get(vpos);
+            w1 = lds.dSetVal(o5);
+            // w1 = 8 [F=6][V=2]
+
+            document.getElementById("footinfo").innerHTML = "生成処理を完了しました。";
         }
         function DecJob() {
             // 復号処理
+            let lpos = lds.Check('M', 'Test1');     // ['M','Test1'] = 1
+            let tim = setLogTime();
+            let txt = "['M':'Test1'] = " + lpos;
+            resultLog(tim, txt);
         }
     </script>
 </body>

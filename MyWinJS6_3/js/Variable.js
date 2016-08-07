@@ -239,6 +239,30 @@
                 return ("");
             }
         }
+        // モジュール名：Get
+        // 　　　　入力：eno　・・・　取り出す番号
+        // 　　　　出力：o5　・・・　抜き取り情報
+        // 　　処理内容：資源テーブル情報を取り出す
+        this.Get = function (eno) {
+            let w1 = Table.length - 1;
+
+            let o5 = this.vInit();               // 格納領域を作成
+            if (eno > -1) {   // 削除対象の要素が有るか？ [Number.MIN_VALUE]->[-1]
+                o5.Name = Table[eno].Name;		// 要素名の取り出し
+
+                if (Array.isArray(Table[eno].Argv)) {		// 登録情報は配列か？
+                    o5.Argc = Table[eno].Argc;
+                    o5.Argv = new Array(Table[eno].Argc);
+                    for (let i = 0; i < Table[eno].Argc; i++) {
+                        o5.Argv[i] = Table[eno].Argv[i];	// 要素を登録する
+                    }
+                } else {                        // 一次変数
+                    o5.Argc = 1;
+                    o5.Argv = Table[eno].Argv;
+                }
+            }
+            return o5;
+        }
     };
 
     window.LocalVariableScript = LocalVariableScript;

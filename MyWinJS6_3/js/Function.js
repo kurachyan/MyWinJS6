@@ -169,6 +169,24 @@
                 return ("");
             }
         }
+        // モジュール名：Get
+        // 　　　　入力：eno　・・・　取り出す番号
+        // 　　　　出力：o3　・・・　抜き取り情報
+        // 　　処理内容：資源テーブル情報を取り出す
+        this.Get = function (eno) {
+            let o3 = this.Init();               // 格納領域を作成
+
+            if (eno > 0 && eno < Table.length) {   // 実行対象の要素が有るか？
+                o3.Number = Table[eno].Number;   // シーケンス番号の取り出し
+                o3.Link.Last = Table[eno].Link.Last;        // リンク情報の登録
+                o3.Link.Next = Table[eno].Link.Next;
+                o3.Name = Table[eno].Name;		// ファンクション名の取り出し
+                o3.Logic = Table[eno].Logic;		// ファンクション登録の取り出し
+                o3.Result = Table[eno].Result;	// 結果情報の取り出し
+            }
+
+            return (o3);
+        }
     }
 
     window.LocalFunctionScript = LocalFunctionScript;
